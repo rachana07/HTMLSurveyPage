@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> GMU Survey Form </title>
+<link rel="stylesheet"	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+  <!-- including javascript in my page-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- Custom styles for this template -->
+	<style type="text/css">
+		.custom-style {
+        border: 5px solid #006633;
+        box-shadow: 10px 10px #FFCC33;
+        font-family: Myriad pro;
+        font-weight: bolder;
+      }
+
+      .space{
+      	margin-top: 20px;
+      }
+
+      label{
+      	margin-top: 10px;
+      	font-weight: bolder;
+      } 
+
+       div.fixed {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+     }  
+
+     .column {
+  		float: left;
+  		width: 33.33%;
+  		padding: 5px;
+	}
+
+	.row::after {
+  		content: "";
+  		clear: both;
+  		display: table;
+	}
+
+
+	</style>
+</head>
+<body class="bg-light">
+
+	<div style="display: none">
+  		<div id="error_dialog" title="Please resolve these errors!" >
+  			<p id="error_text" style="color: red;">Errorzz</p>
+		</div>
+ 	</div>
+
+
+	<div style="background-color: #006633 ">
+	<a href = "http://mason.gmu.edu/~rthota/testaccess/index.html">
+        <img class="d-block mx-auto " src="mason-logo.png" alt="George Mason Logo  " width="250" height="150">
+    </a>
+    </div>
+  	
+    <div class="space">
+    	<div class="container">
+        	<h2 class="py-2 text-center custom-style">CS Department Survey Form</h2>
+
+        	<h3 style="color: #006633;font-family: Myriad pro;text-align: right;"> LastName: THOTA</h3>
+        	<div id="DisplayHere"></div>
+			<div id="NewUser"></div>
+
+        		<div class="row">
+					<div class="col-md-8 mx-auto">
+
+					<!-- survey form -->
+					<form autocomplete="on" id="studForm" method="post">
+
+						<!-- labels -->
+						<div class="mb-3">
+							<label for="name">Name<label style="color: red">* </label></label>
+						 	<div class="input-group">
+								<input type="text" class="form-control" id="name"placeholder="Name" required autofocus>
+						 	</div>
+						 	<div class="invalid-feedback" style="width: 100%;">Please
+							enter Name.</div>
+						<div id="errorName" style="color: red"></div>
+						</div>
+
+						<div class="mb-3">
+							<label for="email">Email<label style="color: red">*</label></label>
+							<input type="email" class="form-control" id="email"
+							placeholder="you@example.com" required>
+							<div class="invalid-feedback">Please enter a valid email
+							address.</div>
+							<div id="errorEmail" style="color: red"></div>
+						</div>
+
+						<div class="mb-3">
+							<label for="address">Street Address<label
+								style="color: red">*</label></label> <input type="text"
+								class="form-control" id="streetaddress"
+								placeholder="1234 Main St" required>
+								<div id="errorStreet" style="color: red"></div>
+								<div class="invalid-feedback">Please enter your street address.</div>
+						</div>
+
+
+						<div class="mb-3">
+							<label for="zipcode">Zipcode</label><label style="color: red">* </label></label>
+							<input type="number" class="form-control" id="zipcode" onblur="checkZipcodes(this.value)" placeholder="zipcode" required>
+							<div class="invalid-feedback" style="width: 100%;">Please
+							enter zipcode.</div>
+							<div id="errorZip" style="color: red"></div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6 mb-3">
+							<label for="city">City : <label id="getCity">NA</label></label>
+							<div class="invalid-feedback" style="width: 100%;">Please
+								enter city.</div>
+							</div>
+
+							<div class="col-md-6 mb-3">
+							<label for="state">State : <label id="getState">NA</label></label>
+							<div class="invalid-feedback" style="width: 100%;">Please
+								enter state.</div>
+							</div>
+						</div>
+
+
+						<div class="mb-3">
+							<label for="telephone">Telephone number</label>
+							 <input type="number" class="form-control" id="telephone"
+							placeholder="555-555-5555" required>
+						</div>
+
+						<div class="mb-3">
+							<label for="url">URL<span class="text-muted">(Optional)</span></label>
+							<input type="text" class="form-control" id="url"
+							placeholder="http://username_example.com">
+						</div>
+
+						<div class="mb-3">
+							<label for="surveydate">Date of Survey</label> <input type="date"
+							class="form-control" id="surveydate" placeholder="mm-dd-yyyy">
+						</div>
+
+						<hr class="mb-4">
+						<h5>What did you like most about the campus <label style="color: red">* </label></h5>
+
+						<!-- checkboxes -->
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="students" name="check">
+							<label class="custom-control-label" for="students">Students</label>
+						</div>
+
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="location" name="check">
+							<label class="custom-control-label" for="location">Location</label>
+						</div>
+
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="campus" name="check">
+							<label class="custom-control-label" for="campus">Campus</label>
+						</div>
+
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="atmosphere" name="check"> 
+							<label class="custom-control-label"
+								for="atmosphere">Atmosphere</label>
+						</div>
+
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input"
+							id="dorm-rooms" name="check"> 
+							<label class="custom-control-label"
+							for="dorm-rooms">Dorm-rooms</label>
+						</div>
+
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="sports" name="check">
+							<label class="custom-control-label" for="sports">Sports</label>
+						</div>
+
+						<hr class="mb-4">
+						<h5>
+							How did you get interested in the university <label style="color: red">* </label>
+						</h5>
+
+						<!-- radio buttons -->
+						<div class="d-block my-3">
+							<div class="custom-control custom-radio">
+								<input id="friends" name="interestInUniversity" type="radio"
+								class="custom-control-input" value="1"> <label
+								class="custom-control-label" for="friends">Friends</label>
+							</div>
+
+							<div class="custom-control custom-radio">
+								<input id="television" name="interestInUniversity" type="radio"
+								class="custom-control-input" value="2"> <label
+								class="custom-control-label" for="television">Television</label>
+							</div>
+
+							<div class="custom-control custom-radio">
+								<input id="internet" name="interestInUniversity" type="radio"
+								class="custom-control-input" value="3"> <label
+								class="custom-control-label" for="internet">Internet</label>
+							</div>
+
+							<div class="custom-control custom-radio">
+								<input id="others" name="interestInUniversity" type="radio"
+								class="custom-control-input" value="4"> <label
+								class="custom-control-label" for="others">Others</label>
+							</div>
+						</div>
+
+						<hr class="mb-4">
+						<h5>Additional Comments</h5>
+						<textarea id="comments" rows="4" cols="100"></textarea>
+
+						<hr class="mb-4">
+						<h5>Please select high-school graduation date</h5>
+
+						<!-- datalist -->
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="graduationMonth">Month</label> <input list="month"
+								name="month">
+								<datalist id="month">
+									<option value="January" />
+									<option value="February" />
+									<option value="March" />
+									<option value="April" />
+									<option value="May" />
+									<option value="June" />
+									<option value="July" />
+									<option value="August" />
+									<option value="September" />
+									<option value="October" />
+									<option value="November" />
+									<option value="December" />
+								</datalist>
+							</div>
+
+							<div class="col-md-6 mb-3">
+								<label for="graduationYear">Year</label> <input type="number"
+								min="1950" max="2020" step="1" id="graduationYear"
+								placeholder="yyyy">
+							</div>
+						</div>
+
+						<hr class="mb-4">
+						<h5>How likely are you to recommend this school to other
+							prospective students</h5>
+
+						<div class="mb-3">
+							<select id="recommend">
+								<option value="veryLikely">Very Likely</option>
+								<option value="likely">Likely</option>
+								<option value="unlikely">Unlikely</option>
+							</select>
+						</div>
+
+						<hr class="mb-4">
+						<div class="">
+						<label for="data">Data</label> <input type="text"
+							class="form-control" id="data" placeholder="1,3,4,7,..."
+							onblur="calcMax()">
+						<div id="errorMsg" style="color: red"></div>
+						<div class="row">
+							<label class="col-md-6 mb-3">Average : <label id="average">0</label></label> <label class="col-md-6 mb-3">Maximum
+								: <label id="maximum">0</label>
+							</label>
+						</div>
+						</div>
+
+						<hr class="mb-4">
+						<div class="row">
+						<button class="col-md-5 btn btn-primary btn-lg btn-block"
+							type="reset" style="margin-top: 0.5rem; margin-right: 0.5rem"
+							onclick="FormReset()">Reset</button>
+						<button class="col-md-5 btn btn-primary btn-lg btn-block"
+							type="button" onclick="return validateFields()">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+    	</div>
+    </div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+	<p class="mb-1">&copy; 2020 George Mason University</p>
+</footer>
+
+   
+
+<!-- fixed mason logo -->    
+<div class="fixed">
+  <a href="https://www2.gmu.edu/">
+    <img class="d-block mx-auto mb-4" align="right" src="mason-logo.png" width="200" height="150">
+  </a>
+</div>
+
+<script type="text/javascript">
+
+	//redirecting to index page after clicking submit button
+	function mySubmit(){
+		alert("Thanks for your feedback.")
+	}
+
+	//cookie implementation
+	var now = new Date();
+	var hour = now.getHours();
+	var name;
+	var timeis;
+	if (hour < 12) {
+		timeis = "Good Morning ";
+	} else {
+		hour = hour - 12;
+		if (hour < 6)
+			timeis = "Good Afternoon ";
+		else
+			timeis = "Good Evening ";
+	}
+
+	function deleteCookie() {
+		console.log("Entered deleteCookie");
+		setCookie('name', '', -1);
+		location.reload();
+	}
+
+	function setCookie(name, value, days) {
+		var d = new Date;
+		d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+		document.cookie = name + "=" + value + ";path=/;expires="
+				+ d.toGMTString();
+	}
+	function getCookie(name) {
+		var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+		return v ? v[2] : '';
+	}
+
+	temp = getCookie('name');
+	console.log(temp);
+	if (temp == '') {
+		name = window.prompt("Please enter your name", "");
+		setCookie('name', name, 3);
+	} else {
+		name = temp;
+	}
+	document.getElementById("DisplayHere").innerHTML = "<h5>" + timeis
+				+ name + ", Welcome to SWE642 Survey!" + "</h5>"
+	document.getElementById("NewUser").innerHTML = "<a href='javascript:deleteCookie()'> Not "
+				+ name + "? Please click here</a>"
+
+    // to calculate average of 10 numbers
+    function calcMax() {
+			console.log("Entered calcMax");
+			var inputString = document.getElementById("data").value;
+
+              var valid_regex = /^[0-9,]+$/;
+
+if(!inputString.match(valid_regex)){
+  document.getElementById('errorMsg').innerHTML = "Error : Wrong Format!";
+  return;
+}
+
+
+			var tokens = inputString.split(",");
+			var sum = 0;
+			if (tokens.length < 10) {
+				errorMsg
+				document.getElementById("errorMsg").innerHTML = "Please Enter atleast 10 numbers";
+			} else {
+				document.getElementById("errorMsg").innerHTML = "";
+				var error = 0;
+				for (var i = 0; i < tokens.length; i++) {
+					tokens[i] = parseInt(tokens[i], 10);
+					sum += tokens[i];
+					if (tokens[i] > 100 || tokens[i] < 1) {
+						error = 1;
+					}
+				}
+
+				if (error == 1) {
+					document.getElementById("errorMsg").innerHTML = "Please Enter numbers only between 1 to 100";
+				} else {
+					var max = Math.max.apply(Math, tokens);
+					var avg = sum / tokens.length;
+					document.getElementById("average").innerHTML = avg;
+					document.getElementById("maximum").innerHTML = max;
+				}
+			}
+		}
+
+		//Zipcodes code:
+
+		function checkZipcodes(enteredZip) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var data = JSON.parse(xhttp.responseText)
+					var zips = data.zipcodes;
+
+					var zipValid = 0;
+					for (i = 0; i < zips.length; i++) {
+						if (enteredZip == zips[i].zip) {
+							zipValid = 1;
+							document.getElementById("getCity").innerHTML = zips[i].city;
+							document.getElementById("getState").innerHTML = zips[i].state;
+							document.getElementById("errorZip").innerHTML = '';
+						}
+					}
+
+					if (zipValid != 1) {
+						document.getElementById("getCity").innerHTML = 'NA';
+						document.getElementById("getState").innerHTML = 'NA';
+						document.getElementById("errorZip").innerHTML = 'Please enter a valid zipcode ';
+					}
+				}
+			};
+			xhttp.open("GET",
+					"http://mason.gmu.edu/~rthota/testaccess/zipcodes.json",
+					true,"swe642", "Trach@1234");
+			xhttp.send();
+		}
+
+		//Onclick Validate function
+		function validateFields() {
+			var name = document.getElementById("name").value;
+			var reName = /^[a-zA-Z ]*$/;
+			var alertMsg = "";
+
+			if(name == ''){
+				document.getElementById("errorName").innerHTML = 'Please enter a name <br />';
+				document.getElementById("name").value = "";
+				alertMsg += "Please enter a name <br />\n";
+			}
+			if (!reName.test(name)) {
+				document.getElementById("errorName").innerHTML = 'Please enter a valid name <br />';
+				document.getElementById("name").value = "";
+				alertMsg += "Please enter a valid name <br />\n";
+			} else {
+				document.getElementById("errorName").innerHTML = '';
+			}
+
+			var reStreet = /^[0-9a-zA-Z ]+$/;
+			var streetaddress = document.getElementById("streetaddress").value;
+			if (streetaddress == '') {
+				document.getElementById("errorStreet").innerHTML = 'Please enter a street address <br />';
+				document.getElementById("streetaddress").value = "";
+				alertMsg += "Please enter a street address <br />\n";
+			} else {
+				if (!streetaddress.match(reStreet)) {
+					document.getElementById("errorStreet").innerHTML = 'Please enter a valid street address <br />';
+					document.getElementById("streetaddress").value = "";
+					alertMsg += "Please enter a valid street address <br />\n";
+				} else {
+					document.getElementById("errorStreet").innerHTML = '';
+				}
+			}
+
+			var reEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			var email = document.getElementById("email").value;
+			if (email == '') {
+				document.getElementById("errorEmail").innerHTML = 'Email id cannot be empty <br />';
+				document.getElementById("email").value = "";
+				alertMsg += "Please enter an email id <br />\n";
+
+			} else {
+				if (!reEmail.test(email)) {
+					document.getElementById("errorEmail").innerHTML = 'Please enter a valid Email id <br />';
+					document.getElementById("email").value = "";
+					alertMsg += "Please enter a valid email id <br />\n";
+				} else
+					document.getElementById("errorEmail").innerHTML = '';
+			}
+
+			var zipcode = document.getElementById("zipcode").value;
+			if(zipcode === ''){
+				document.getElementById("errorZip").innerHTML = 'Zipcode cannot be empty <br />';
+				document.getElementById("zipcode").value = "";
+				alertMsg += "Please enter an zipcode <br />\n";
+
+			}
+
+			var checkedNum = document
+					.querySelectorAll('input[type="checkbox"]:checked').length
+			if (checkedNum < 2) {
+				//document.querySelectorAll('input[type="checkbox"]').checked = false;
+				alertMsg += "Please check atleast two checkboxes <br />\n";
+			}
+
+			//var radioChecked = document.getElementsByName("interestInUniversity").checked
+			var radioChecked = document
+					.querySelector('input[name = "interestInUniversity"]:checked')
+			if (radioChecked == null) {
+				alertMsg += "Please select a radio button <br />";
+			}
+
+			if(alertMsg.length > 0){
+    		console.log('The error is  '+ alertMsg);
+    		document.getElementById("error_text").innerHTML = alertMsg;
+
+     		$( function() {
+    			$( "#error_dialog" ).dialog();
+  			} );
+   
+  			} else {
+  				alert("Thanks for your Feedback!");
+  				window.location.replace("http://mason.gmu.edu/~rthota/testaccess/");
+			}
+		}
+
+
+		//Onclick FormReset function
+		function FormReset() {
+			document.getElementById("getCity").innerHTML = '';
+			document.getElementById("getState").innerHTML = '';
+			document.getElementById("errorZip").innerHTML = '';
+			document.getElementById("errorEmail").innerHTML = '';
+			document.getElementById("errorStreet").innerHTML = '';
+			document.getElementById("average").innerHTML = '';
+			document.getElementById("maximum").innerHTML = '';
+			document.getElementById("errorMsg").innerHTML = ''; 
+
+		}
+
+
+</script>
+
+</body>
+
+</html>

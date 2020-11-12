@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<title>Homepage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- query tabs -->
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+</script>
+
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.bgimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('http://mason.gmu.edu/~rthota/testaccess/pic.jpg');
+  min-height: 100%;
+}
+</style>
+<body>
+
+<!-- listing the tabs -->
+ <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">Homepage</a></li>
+        <li><a href="#tabs-2">Volgenau School of Engineering</a></li>
+      </ul>
+
+<!-- tab1-->
+<div id="tabs-1">
+<!-- Sidebar with image -->
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
+  <div class="bgimg"></div>
+</nav>
+
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+    <a href="#projects" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">My Projects</a>
+    <a href="#about" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">About</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-main w3-padding-large" style="margin-left:40%">
+
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-white w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+  <!-- Header -->
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+    <h1 class="w3-jumbo"><b>Rachana Thota</b></h1>
+    <p>Graduate in Computer Science</p>
+    <a href="./Resume.pdf" download="Resume.pdf">
+    <button class="w3-button w3-light-grey w3-padding-large w3-section">
+      <i class="fa fa-download"></i> Download Resume
+    </button>
+    </a>
+  </header>
+
+  <!-- projects Section -->
+  <div class="w3-padding-32 w3-content" id="projects">
+    <h2 class="w3-text-grey">My Projects</h2>
+    <hr class="w3-opacity">
+
+    <!-- Grid for projects -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div>
+        <ul>
+        <h3 class="w3-text-grey" style="text-decoration: underline;">Assignment 1</h3>
+        <li><a href="http://mason.gmu.edu/~rthota/testaccess/department.html">
+          <h5 class="w3-text-grey">Computer Science Department Page</h5>
+        </a></li>
+        <li><a href="http://mason.gmu.edu/~rthota/testaccess/survey.html">
+          <h5 class="w3-text-grey">Computer Science Survey Page using HTML,CSS</h5>
+        </a></li>
+      </ul>
+      </div><br>
+
+      <div>
+        <ul>
+        <h3 class="w3-text-grey" style="text-decoration: underline;">Assignment 2</h3>
+        <li><a href="http://mason.gmu.edu/~rthota/testaccess/survey1.html">
+          <h5 class="w3-text-grey">Computer Science Survey Page using JavaScript, Cookie, Ajax, & jQuery/jQuery UI</h5>
+        </a></li>
+      </ul>
+      </div>
+    <!-- End project grid -->
+    </div>
+  <!-- End projects Section -->
+  </div>
+
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2>About</h2>
+    <hr class="w3-opacity">
+    <p>I am currently pursuing masters in Computer Science. I have done my undergraduation in CSE in India. I have a very curious mind and am always eager to learn new technologies and would love to apply them in real time . Apart from this, I love anime, dancing, listening music and sketching. 
+    </p>
+    <h3 class="w3-padding-16">My Skills</h3>
+    <p class="w3-wide">Devops</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:95%">95%</div>
+    </div>
+    <p class="w3-wide">Web Design</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:85%">85%</div>
+    </div>
+    <p class="w3-wide">Software Development</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:80%">80%</div>
+    </div><br>
+
+
+    
+  <!-- End About Section -->
+  </div>
+
+  <!-- Contact Section -->
+  <div class="w3-padding-32 w3-content w3-text-grey" id="contact" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Virginia, US</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +1 5713266610</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: rthota@gmu.edu</p><br>
+    </div>
+  </div>
+    
+
+<!-- END PAGE CONTENT -->
+</div>
+<!-- end of tab1 -->
+</div>
+
+<!-- tab 2 -->
+<div id="tabs-2">
+    <h2 class="py-2 text-center custom-style" style="font-family: Myriad pro;font-weight: bolder;"><center>Volgenau School of Engineering</center></h2> 
+    <h3 style="color: #006633;font-family: Myriad pro;text-align: right;"> LastName: THOTA</h3>
+    <center><img class="d-block mx-auto mb-4" src="vse.jpeg" width="800" height="500"></center><br>
+
+    <p><center>As technology increases our reach, the world is becoming a smaller place, and today's students will build their careers in a global community. With an international contingent of students on the Mason campus, and faculty members from around the world, Volgenau undergrads are already immersed in a multinational society, forming friendships and connections that will last a lifetime. Our engineering graduates will build a better world, from developing systems to bring clean water to villages, to constructing infrastructure from the ground up in developing nations. A life of adventure awaits.</center> </p><br>
+
+
+  <h3 style="font-family: font-family: "Times New Roman, Times, serif ">What Mason is specially known for?</h3>
+  <div class="row">
+    <div class="column">
+        <img src="cs.jpg" alt="BIGdata" style="size: width:80px;height:80px;">
+        BIG DATA
+      </div><br>
+      <div class="column">
+        <img src="cybersec.jpg" alt="cyber sec" style="width:80px;height:80px;">
+        CYBERSECURITY
+      </div><br>
+      <div class="column">
+        <img src="inftastructure.jpg" alt="Infra img" style="width:80px;height:80px;">
+        INFRASTRUCTURE
+      </div><br>
+      <div class="column">
+        <img src="healthcare.jpg" alt="HEalth img" style="width:80px;height:80px;">
+        HEALTH CARE AND TECHNOLOGY
+      </div><br>
+      <div class="column">
+        <img src="diversity.jpg" alt="diversity" style="width:80px;height:80px;">
+        DIVERSITY
+      </div><br>
+  </div>
+
+  <div class="fixed">
+  <a href="https://www2.gmu.edu/">
+    <img class="d-block mx-auto mb-4" align="right" src="mason-logo.png" width="200" height="150">
+  </a>
+</div>
+
+<!-- end of tab2 -->
+</div>
+<!-- end of tabs -->
+</div>
+
+</body>
+
+<script>
+// Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "60%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+
+</html>
